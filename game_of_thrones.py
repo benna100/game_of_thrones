@@ -106,7 +106,7 @@ def create_gensim_dict():
     #documents_seasons.append(seasons_text_dict['S06'])
     #print documents_seasons
     stoplist = set('for a of the and to in'.split())
-    texts = [[word for word in document.lower().split() if word not in stoplist] for document in documents_seasons]
+    texts = [[word for word in document.lower().split() if word not in stoplist] for document in documents]
     frequency = defaultdict(int)
     for text in texts:
         for token in text:
@@ -141,13 +141,13 @@ def tfidf_analysis():
    
     #sorted_by_second = sorted(corpus_tfidf, key=lambda tup: tup[1])
     counter = 0
-    f = open('season_unique_words.txt','w')
+    f = open('episode_unique_words.txt','w')
      # python will convert \n to os.linesep
     
     for doc in corpus_tfidf:
         counter += 1
-        f.write('')
-        f.write('season ' + str(counter))
+        f.write('\n')
+        f.write('episode ' + str(counter) + '\n')
 
         sorted_doc = sorted(doc, key=lambda tup: tup[1], reverse=True)
         for tfidf_token in sorted_doc[:5]:
@@ -155,7 +155,7 @@ def tfidf_analysis():
             tfidf_score = tfidf_token[1]
             print dictionary[tfidf_token_id]
             try:
-                f.write(str(dictionary[tfidf_token_id]) + ' ' + str(tfidf_score))
+                f.write(str(dictionary[tfidf_token_id]) + ' ' + str(tfidf_score) + '\n')
             except:
                 hej = 1
                 #print sorted_doc[:10]
