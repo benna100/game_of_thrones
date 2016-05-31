@@ -71,7 +71,7 @@ def get_seasons_text():
             subs = pysrt.open("subtitles/" + file_name + ".srt")
             total_text = ""
             for sub in subs:
-                total_text += sub.text.replace('\n', ' ').replace('<i>', '').replace('</i>', '').replace("\'", '').replace("?", ' ').replace(",", '').replace('[', ' ').replace(']', ' ').replace('!', ' ').replace('(', ' ').replace(')', ' ').replace('.', ' ').replace(':', ' ').replace('-', ' ').replace('{', ' ').replace('}', ' ').replace('*', ' ')
+                total_text += sub.text.replace('\n', ' ').replace('<i>', '').replace('</i>', '').replace("\'", '').replace("?", ' ').replace(",", '').replace('[', ' ').replace(']', ' ').replace('!', ' ').replace('(', ' ').replace(')', ' ').replace('.', ' ').replace(':', ' ').replace('-', ' ').replace('{', ' ').replace('}', ' ').replace('*', ' ').replace('"', '')
             #print total_text
             episode_array.append({file_name: total_text.lower()})
             
@@ -106,7 +106,7 @@ def create_gensim_dict():
     #documents_seasons.append(seasons_text_dict['S06'])
     #print documents_seasons
     stoplist = set('for a of the and to in'.split())
-    texts = [[word for word in document.lower().split() if word not in stoplist] for document in documents] 
+    texts = [[word for word in document.lower().split() if word not in stoplist] for document in documents_seasons]
     frequency = defaultdict(int)
     for text in texts:
         for token in text:
@@ -136,24 +136,31 @@ def tfidf_analysis():
 
     corpus_tfidf = tfidf[corpus]
     
-    print dictionary[2]
-    print dir(dictionary)
+    #print dictionary[2]
+    #print dir(dictionary)
    
     #sorted_by_second = sorted(corpus_tfidf, key=lambda tup: tup[1])
-    counter = 0 
+    counter = 0
+    f = open('season_unique_words.txt','w')
+     # python will convert \n to os.linesep
+    
     for doc in corpus_tfidf:
         counter += 1
-        print ''
-        print  'episode ' + str(counter)
+        f.write('')
+        f.write('season ' + str(counter))
 
         sorted_doc = sorted(doc, key=lambda tup: tup[1], reverse=True)
         for tfidf_token in sorted_doc[:5]:
             tfidf_token_id = tfidf_token[0]
             tfidf_score = tfidf_token[1]
-            print dictionary[tfidf_token_id], tfidf_score
+            print dictionary[tfidf_token_id]
+            try:
+                f.write(str(dictionary[tfidf_token_id]) + ' ' + str(tfidf_score))
+            except:
+                hej = 1
                 #print sorted_doc[:10]
         #print dictionary[
-    
+    f.close()
 
 
 
