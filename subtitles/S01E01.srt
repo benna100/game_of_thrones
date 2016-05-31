@@ -124,13 +124,10 @@ It's...
 
 28
 00:07:17,969 --> 00:07:21,969
-<font color=#00FF00>♪ Game of Thrones 1x01 ♪</font>
-<font color=#00FFFF>Winter Is Coming</font>
 Original Air Date on April 17, 2011
 
 29
 00:07:21,994 --> 00:07:25,994
-== sync, corrected by <font color="#00ff00">elderman</font> ==
 
 30
 00:09:48,161 --> 00:09:51,230
@@ -2693,4 +2690,3 @@ I do for love.
 
 584
 01:00:34,899 --> 01:00:38,899
-== sync, corrected by <font color="#00ff00">elderman</font> ==

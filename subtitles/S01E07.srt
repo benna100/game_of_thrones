@@ -143,13 +143,10 @@ Fire cannot kill a dragon.
 
 31
 00:01:47,135 --> 00:01:51,135
-<font color=#00FF00>♪ Game of Thrones 1x07 ♪</font>
-<font color=#00FFFF>You Win or You Die</font>
 Original Air Date on May 29, 2011
 
 32
 00:01:51,160 --> 00:01:55,162
-== sync, corrected by <font color="#00fF00">elderman</font> ==
 
 33
 00:03:32,722 --> 00:03:34,856
@@ -3644,4 +3641,3 @@ not to trust me.
 
 788
 00:58:15,232 --> 00:58:19,232
-== sync, corrected by <font color="#00ff00">elderman</font> ==

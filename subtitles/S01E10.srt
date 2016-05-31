@@ -1,12 +1,9 @@
 ﻿1
 00:01:33,750 --> 00:01:37,753
-<font color=#00FF00>♪ Game of Thrones 01x10 ♪</font>
-<font color=#00FFFF>Fire and Blood</font>
 Original Air Date on June 19, 2011
 
 2
 00:01:37,776 --> 00:01:41,777
-== sync, corrected by <font color="#00FF00">elderman</font> ==
 
 3
 00:02:07,668 --> 00:02:09,937
@@ -2976,4 +2973,3 @@ Blood of my blood.
 
 644
 00:51:31,755 --> 00:51:35,755
-== sync, corrected by <font color="#00ff00">elderman</font> ==

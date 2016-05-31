@@ -1,12 +1,9 @@
 ﻿1
 00:01:39,294 --> 00:01:43,294
-<font color=#00FF00>♪ Game of Thrones 01x07 ♪</font>
-<font color=#00FFFF>The Pointy End</font>
 Original Air Date on June 5, 2011
 
 2
 00:01:43,319 --> 00:01:47,319
-== sync, corrected by <font color="#00ff00">elderman</font> ==
 
 3
 00:01:56,389 --> 00:01:59,124
@@ -3216,4 +3213,3 @@ He will.
 
 691
 00:57:03,286 --> 00:57:07,286
-== sync, corrected by <font color="#00ff00">elderman</font> ==

@@ -166,13 +166,10 @@ Tyrion Lannister's...
 
 36
 00:02:13,840 --> 00:02:17,840
-<font color=#00FF00>♪ Game of Thrones 1x04 ♪</font>
-<font color=#00FFFF>Cripples, Bastards, and Broken Things</font>
 Original Air Date on May 8, 2011
 
 37
 00:02:18,840 --> 00:02:20,040
-== sync, corrected by <font color="#00ff00">elderman</font> ==
 
 38
 00:04:10,385 --> 00:04:13,921
@@ -4195,4 +4192,3 @@ to await the King's Justice.
 
 901
 00:56:06,194 --> 00:56:10,194
-== sync, corrected by <font color="#00ff00">elderman</font> ==

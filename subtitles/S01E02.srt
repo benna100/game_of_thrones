@@ -153,14 +153,10 @@ The things I do for love.
 
 33
 00:01:38,619 --> 00:01:42,619
-<font color=#00FF00>♪ Game of Thrones 1x02 ♪</font>
-<font color=#00FFFF>The Kingsroad</font>
 Original Air Date on April 24, 2011
 
 34
 00:01:42,620 --> 00:01:46,120
-== sync  by <font color="#00ff00">elderman</font> ==
-== corrected by <font color="#ec14bd">elderman</font> ==
 
 35
 00:01:46,145 --> 00:03:15,865
@@ -2876,5 +2872,3 @@ Not very fast.
 
 616
 00:55:45,329 --> 00:55:49,329
-== sync  by <font color="#00ff00">elderman</font> ==
-== corrected by <font color="#ec14bd">elderman</font> ==

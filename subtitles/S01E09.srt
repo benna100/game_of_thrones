@@ -165,13 +165,10 @@ that <i>I'm</i> the King...
 
 35
 00:03:08,659 --> 00:03:12,659
-<font color=#00FF00>♪ Game of Thrones 01x09 ♪</font>
-<font color=#00FFFF>Baelor</font>
 Original Air Date on June 12, 2011
 
 36
 00:03:12,683 --> 00:03:16,683
-== sync, corrected by <font color="#00ff00">elderman</font> ==
 
 37
 00:03:37,273 --> 00:03:39,540
@@ -3528,4 +3525,3 @@ Stop him, stop!
 
 760
 00:56:44,243 --> 00:56:48,243
-== sync, corrected by <font color="#00ff00">elderman</font> ==

@@ -159,14 +159,10 @@ does he?
 
 34
 00:01:38,723 --> 00:01:42,723
-<font color=#00FF00>♪ Game of Thrones 1x03 ♪</font>
-<font color=#00FFFF>Lord Snow</font>
 Original Air Date on May 1, 2011
 
 35
 00:01:47,583 --> 00:01:51,583
-== sync  by <font color="#00ff00">elderman</font> ==
-== corrected by <font color="#ec14bd">elderman</font> ==
 
 36
 00:03:43,386 --> 00:03:45,253
@@ -3919,5 +3915,3 @@ Ah.
 
 843
 00:57:38,474 --> 00:57:42,374
-== sync  by <font color="#00ff00">elderman</font> ==
-== corrected by <font color="#ec14bd">elderman</font> ==

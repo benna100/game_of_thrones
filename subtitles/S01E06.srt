@@ -1,12 +1,9 @@
 ﻿1
 00:01:40,529 --> 00:01:44,529
-<font color=#00FF00>♪ Game of Thrones 01x06 ♪</font>
-<font color=#00FFFF>A Golden Crow</font>
 Original Air Date on May 22, 2011
 
 2
 00:01:45,529 --> 00:01:49,532
-== sync, corrected by <font color="#00FF00">elderman</font> ==
 
 3
 00:02:24,659 --> 00:02:27,127
@@ -2997,4 +2994,3 @@ Fire cannot kill a Dragon.
 
 653
 00:51:34,097 --> 00:51:38,097
-== sync, corrected by <font color="#00Ff00">elderman</font> ==
