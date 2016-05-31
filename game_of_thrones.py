@@ -5,20 +5,19 @@ from soupselect import select
 from BeautifulSoup import BeautifulSoup as Soup
 from bs4 import BeautifulSoup
 import urllib
-from afinn import Afinn
-import agate
+#from afinn import Afinn
 import json
 import operator
-from senti_classifier import senti_classifier
+#from senti_classifier import senti_classifier
 from textblob import TextBlob
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import requests
 #import scipy
 #import numpy
 #from gensim import utils
-#from gensim import corpora, models, similarities
-
-afinn = Afinn(language='en')
+from gensim import corpora, models, similarities
+from collections import defaultdict
+#afinn = Afinn(language='en')
 
 def test_sentiment_api():
     subs = pysrt.open("subtitles/" + 'S01E01' + ".srt")
@@ -51,7 +50,7 @@ def perform_sentiment_analysis():
             for sub in subs:
                 total_text += sub.text.replace('\n', ' ').replace('<i>', '').replace('</i>', '').replace("\'", '').replace("?", ' ')
             text[file_name] = total_text
-            sentiment1[file_name] = afinn.score(total_text)
+            #sentiment1[file_name] = afinn.score(total_text)
             blob = TextBlob(total_text)
             form = dict(text=total_text)
             r = requests.post("http://text-processing.com/api/sentiment/", data=form)
@@ -72,11 +71,96 @@ def get_seasons_text():
             subs = pysrt.open("subtitles/" + file_name + ".srt")
             total_text = ""
             for sub in subs:
-                total_text += sub.text.replace('\n', ' ').replace('<i>', '').replace('</i>', '').replace("\'", '').replace("?", ' ').replace(",", '')
+                total_text += sub.text.replace('\n', ' ').replace('<i>', '').replace('</i>', '').replace("\'", '').replace("?", ' ').replace(",", '').replace('[', ' ').replace(']', ' ').replace('!', ' ').replace('(', ' ').replace(')', ' ').replace('.', ' ').replace(':', ' ').replace('-', ' ').replace('{', ' ').replace('}', ' ').replace('*', ' ')
             #print total_text
             episode_array.append({file_name: total_text.lower()})
             
     return episode_array
+
+
+
+def create_gensim_dict():
+    seasons_text = get_seasons_text()
+#    print seasons_text
+    documents = []
+    documents_seasons = []
+    seasons_text_dict = {}
+    for season_text_dict in seasons_text:
+        
+        season_text = season_text_dict.values()[0]
+        episode_name = season_text_dict.keys()[0]
+        #print episode_name
+        documents.append(season_text)
+        season_name = episode_name[:3]
+        if(season_name in seasons_text_dict):
+            seasons_text_dict[season_name].append(season_text)
+        else:
+            seasons_text_dict[season_name] = [season_text]        
+            
+#    print seasons_text_dict
+    documents_seasons.append(seasons_text_dict['S01'][0])
+    documents_seasons.append(seasons_text_dict['S02'][0])
+    documents_seasons.append(seasons_text_dict['S03'][0])
+    documents_seasons.append(seasons_text_dict['S04'][0])
+    documents_seasons.append(seasons_text_dict['S05'][0])
+    #documents_seasons.append(seasons_text_dict['S06'])
+    #print documents_seasons
+    stoplist = set('for a of the and to in'.split())
+    texts = [[word for word in document.lower().split() if word not in stoplist] for document in documents] 
+    frequency = defaultdict(int)
+    for text in texts:
+        for token in text:
+           frequency[token] += 1
+
+    texts = [[token for token in text if frequency[token] > 1] for text in texts]
+
+    dictionary = corpora.Dictionary(texts)
+    dictionary.save('game_of_thrones.dict')
+
+    corpus = [dictionary.doc2bow(text) for text in texts]
+
+    corpora.MmCorpus.serialize('game_of_thrones.mm', corpus)
+
+
+
+create_gensim_dict()
+
+
+def tfidf_analysis():
+    # load dictionary
+    dictionary = corpora.Dictionary.load('game_of_thrones.dict')    
+    corpus = corpora.MmCorpus('game_of_thrones.mm')
+    print(corpus)
+    
+    tfidf = models.TfidfModel(corpus)
+
+    corpus_tfidf = tfidf[corpus]
+    
+    print dictionary[2]
+    print dir(dictionary)
+   
+    #sorted_by_second = sorted(corpus_tfidf, key=lambda tup: tup[1])
+    counter = 0 
+    for doc in corpus_tfidf:
+        counter += 1
+        print ''
+        print  'episode ' + str(counter)
+
+        sorted_doc = sorted(doc, key=lambda tup: tup[1], reverse=True)
+        for tfidf_token in sorted_doc[:5]:
+            tfidf_token_id = tfidf_token[0]
+            tfidf_score = tfidf_token[1]
+            print dictionary[tfidf_token_id], tfidf_score
+                #print sorted_doc[:10]
+        #print dictionary[
+    
+
+
+
+
+tfidf_analysis()
+
+
 
 
 def show_sentiment_analysis():
